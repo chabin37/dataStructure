@@ -29,13 +29,13 @@ public class Main {
         tree.root().children().get(0).children().get(1).setChildren(arr3);
 
         //실습 3
-        System.out.println("[Level0]");
+        System.out.println("[Level 0]");
         System.out.println(tree.root().element()+"\n");
-        System.out.println("[Level1]");
+        System.out.println("[Level 1]");
         System.out.println(tree.root().children().get(0).element().toString()+", "+tree.root().children().get(1).element().toString()+", "+tree.root().children().get(2).element().toString()+"\n");
-        System.out.println("[Level2]");
+        System.out.println("[Level 2]");
         System.out.println(tree.root().children().get(0).children().get(0).element()+", "+tree.root().children().get(0).children().get(1).element()+", "+tree.root().children().get(1).children().get(0).element()+", "+tree.root().children().get(1).children().get(1).element()+"\n");
-        System.out.println("[Level3]");
+        System.out.println("[Level 3]");
         System.out.println(tree.root().children().get(0).children().get(1).children().get(0).element()+", "+tree.root().children().get(0).children().get(1).children().get(1).element()+", "+tree.root().children().get(0).children().get(1).children().get(2).element()+"\n");
         System.out.println("*Tree size=Total "+tree.size()+" Nodes");
         System.out.println();
@@ -118,7 +118,6 @@ public class Main {
                 }
             }
         }
-        System.out.println(tempMap);
         System.out.println("homeworks/ = "+tempMap.get("homeworks/")+"KB");
         System.out.println("programs/ = "+tempMap.get("programs/")+"KB");
         System.out.println("cs16/ = "+tempMap.get("cs16/")+"KB");
