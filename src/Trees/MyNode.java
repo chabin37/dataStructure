@@ -1,3 +1,5 @@
+package Trees;
+
 import java.util.ArrayList;
 
 public class MyNode {
@@ -7,12 +9,12 @@ public class MyNode {
     MyNode() {
         this.element = null;
         this.parent = null;
-        this.children = new ArrayList<>();
+        this.children = new ArrayList<MyNode>();
     }
     MyNode(Object e) {
         this.element = e;
         this.parent = null;
-        this.children = new ArrayList<>();
+        this.children = new ArrayList<MyNode>();
     }
     public Object element() {
         return this.element;
@@ -33,6 +35,7 @@ public class MyNode {
         this.parent = p;
     }
     public void setChildren(ArrayList<MyNode> c) {
+        MyTree.size+=c.size();
         this.children = c;
     }
 }
