@@ -35,7 +35,6 @@ public class MyNode {
         this.parent = p;
     }
     public void setChildren(ArrayList<MyNode> c) {
-        MyTree.size+=c.size();
         this.children = c;
     }
 }

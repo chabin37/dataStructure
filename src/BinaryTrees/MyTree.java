@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MyTree {
     private MyNode root;
-    static int size=1;
+    int size;
     MyTree(){root=null;}
     MyTree(Object e){
         root=new MyNode(e);
@@ -22,38 +22,46 @@ public class MyTree {
        return v.children().isEmpty();
     }
     public MyNode addRoot(Object e) {
-        MyNode mn=new MyNode(e);
-        var arr=new ArrayList();
-        arr.add(new MyNode(this.root.element()));
-        mn.setChildren(arr);
-        this.root=mn;
-        size+=1;
-        return mn;
-    }
-    public MyNode addNode(Object e) {
-        MyNode mn=new MyNode(e);
-        this.root.children().add(mn);
-        size+=1;
+        if (root != null)
+            throw new IllegalStateException("Tree already has a root");
+
+        root = new MyNode(e);
+        size = 1;
         return root;
     }
+
+    public MyNode addNode(Object e) {
+        MyNode newNode = new MyNode(e);
+        root.children().add(newNode);
+        size++;
+        return newNode;
+    }
+
     public MyNode addChild(MyNode v, Object e) {
-        v.children().add(new MyNode(e));
-        size+=1;
-        return v;
+        MyNode newNode = new MyNode(e);
+        v.children().add(newNode);
+        size++;
+        return newNode;
     }
+
     public MyNode addChild(MyNode v, int i, Object e) {
-        v.children().add(i,new MyNode(e));
-        size+=1;
-        return v;
+        MyNode newNode = new MyNode(e);
+        v.children().add(i, newNode);
+        size++;
+        return newNode;
     }
+
     public MyNode setChild(MyNode v, int i, Object e) {
-        v.children().set(i,new MyNode(e));
-        size+=1;
-        return v;
+        MyNode oldNode = v.children().get(i);
+        MyNode newNode = new MyNode(e);
+        v.children().set(i, newNode);
+        size = size - oldNode.degree() + newNode.degree();
+        return newNode;
     }
+
     public MyNode removeChild(MyNode v, int i) {
-        v.children().remove(i);
-        size+=1;
-        return v;
+        MyNode removedNode = v.children().remove(i);
+        size -= removedNode.degree();
+        return removedNode;
     }
 }

@@ -49,22 +49,11 @@ public class MyBinTree extends MyTree{
         return this.root;
     }
     public MyBinNode insertLeft(MyBinNode v, Object e) {
-        if(v.Binchildren().size()==0){
-            v.setLeft(new MyBinNode(e));
-        }
-        else{
-            v.Binchildren().add(new MyBinNode(e));
-        }
+        v.setLeft(new MyBinNode(e));
         return v;
     }
     public MyBinNode insertRight(MyBinNode v, Object e) {
-        if(v.Binchildren().size()==0){
-            v.setLeft(new MyBinNode(e));
-        }
-        else{
-            v.Binchildren().add(null);
-            v.Binchildren().add(new MyBinNode(e));
-        }
+        v.setRight(new MyBinNode(e));
         return v;
     }
     public Object replace(MyBinNode v, Object e) {
@@ -76,10 +65,26 @@ public class MyBinTree extends MyTree{
     public MyBinNode remove(MyBinNode v) throws TwoChildrenException {
         if (v.left() != null && v.right() != null)
             throw new TwoChildrenException("Node has two children");
-        return null;
+
+        MyBinNode child = (v.left() != null) ? v.left() : v.right();
+        if (child != null)
+            child.setParent(v.parent());
+
+        if (v == root)
+            root = child;
+        else if (v.parent().left() == v)
+            v.parent().setLeft(child);
+        else
+            v.parent().setRight(child);
+
+        size--;
+        return v;
     }
 
     public void attach(MyBinNode v, MyBinNode t1, MyBinNode t2) throws NotExternalException {
         if (!isExternal(v)) throw new NotExternalException("Node is not external");
+        v.setLeft(t1);
+        v.setRight(t2);
+        size += t1.size() + t2.size();
     }
 }
