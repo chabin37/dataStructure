@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MyTree {
     private MyNode root;
-    int size;
+    int size=0;
     MyTree(){root=null;}
     MyTree(Object e){
         root=new MyNode(e);

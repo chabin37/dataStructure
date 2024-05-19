@@ -2,10 +2,10 @@ package BinaryTrees;
 
 public class MyBinTree extends MyTree{
     private MyBinNode root;
-
     MyBinTree() { this.root=null; }
     MyBinTree(Object e) {
         this.root = new MyBinNode(e);
+        this.size++;
     }
     public Boolean isEmpty() {
         return root == null;
@@ -50,10 +50,12 @@ public class MyBinTree extends MyTree{
     }
     public MyBinNode insertLeft(MyBinNode v, Object e) {
         v.setLeft(new MyBinNode(e));
+        this.size++;
         return v;
     }
     public MyBinNode insertRight(MyBinNode v, Object e) {
         v.setRight(new MyBinNode(e));
+        this.size++;
         return v;
     }
     public Object replace(MyBinNode v, Object e) {
