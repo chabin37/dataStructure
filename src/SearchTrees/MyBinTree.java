@@ -1,11 +1,8 @@
 package SearchTrees;
 
-import BinaryTrees.MyBinNode;
-import BinaryTrees.NotExternalException;
-import BinaryTrees.TwoChildrenException;
 
 public class MyBinTree extends MyTree {
-    private MyBinNode root;
+    protected MyBinNode root;
     MyBinTree() { this.root=null; }
     MyBinTree(Object e) {
         this.root = new MyBinNode(e);

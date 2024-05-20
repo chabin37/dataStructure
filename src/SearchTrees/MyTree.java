@@ -1,7 +1,5 @@
 package SearchTrees;
 
-import BinaryTrees.MyNode;
-
 import java.util.ArrayList;
 
 public class MyTree {
