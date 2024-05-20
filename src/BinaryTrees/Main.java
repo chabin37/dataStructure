@@ -94,26 +94,4 @@ public class Main {
         postorder(tree, tree.right(node));
         System.out.print(node.element() + " ");
     }
-    //나와야 하는 결과
-//    트리 크기: 7
-//    루트 노드: A
-//    루트의 왼쪽 자식: B
-//    루트의 오른쪽 자식: C
-//    노드 B의 왼쪽 자식: D
-//    노드 B의 오른쪽 자식: E
-//    노드 C의 왼쪽 자식: F
-//    노드 C의 오른쪽 자식: G
-//    노드 A는 루트인가? true
-//    노드 B는 내부 노드인가? true
-//    노드 D는 외부 노드인가? true
-//    노드 D의 원래 값: D
-//    노드 D의 변경된 값: D2
-//    노드 E 제거 후 트리 크기: 6
-//    서브트리 추가 후 트리 크기: 8
-//    전위 순회:
-//    A B D2 X Y Z C F G
-//    중위 순회:
-//    Y X Z D2 B A F C G
-//    후위 순회:
-//    Y Z X D2 B F G C A
 }
