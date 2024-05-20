@@ -14,7 +14,6 @@ public class Main {
         MyBinNode nodeE = tree.insertRight(nodeB, "E");
         MyBinNode nodeF = tree.insertLeft(nodeC, "F");
         MyBinNode nodeG = tree.insertRight(nodeC, "G");
-
         // 트리 정보 출력
         System.out.println("트리 크기: " + tree.size());
         System.out.println("루트 노드: " + tree.root().element());

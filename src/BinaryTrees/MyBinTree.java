@@ -49,14 +49,18 @@ public class MyBinTree extends MyTree{
         return this.root;
     }
     public MyBinNode insertLeft(MyBinNode v, Object e) {
-        v.setLeft(new MyBinNode(e));
+        var a=new MyBinNode(e);
+        v.setLeft(a);
+        a.setParent(v);
         this.size++;
-        return v;
+        return a;
     }
     public MyBinNode insertRight(MyBinNode v, Object e) {
-        v.setRight(new MyBinNode(e));
+        var a=new MyBinNode(e);
+        v.setRight(a);
+        a.setParent(v);
         this.size++;
-        return v;
+        return a;
     }
     public Object replace(MyBinNode v, Object e) {
         Object temp = v.element();
@@ -87,6 +91,15 @@ public class MyBinTree extends MyTree{
         if (!isExternal(v)) throw new NotExternalException("Node is not external");
         v.setLeft(t1);
         v.setRight(t2);
-        size += t1.size() + t2.size();
+
+        if (t1 != null) {
+            t1.setParent(v);
+            size += t1.size();
+        }
+
+        if (t2 != null) {
+            t2.setParent(v);
+            size += t2.size();
+        }
     }
 }

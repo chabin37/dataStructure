@@ -46,5 +46,7 @@ public class MyBinNode extends MyNode{
             children.add(v);
         else
             children.set(1, v);
+    }public void setParent(MyBinNode parent) {
+        this.parent = parent;
     }
 }
